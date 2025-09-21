@@ -12,7 +12,7 @@ class CardapioController extends Controller
     public function index()
     {
         $pratos = Prato::paginate(5);
-        return view('cardapio.index', compact('pratos'));
+        return view('cardapio.admin', compact('pratos'));
     }
 
     public function create()

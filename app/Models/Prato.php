@@ -12,3 +12,4 @@ class Prato extends Model
                            'arquivo',
                            'user_id'];
 }
+
