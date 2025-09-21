@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('pratos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string("nm_prato");
             $table->string("desc_ingred");
             $table->decimal("vl_prato", 8, 2);

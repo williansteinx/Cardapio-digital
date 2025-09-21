@@ -9,5 +9,6 @@ class Prato extends Model
     protected $fillable = ['nm_prato', 
                            'desc_ingred', 
                            'vl_prato', 
-                           'arquivo'];
+                           'arquivo',
+                           'user_id'];
 }

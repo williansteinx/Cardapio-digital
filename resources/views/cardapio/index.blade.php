@@ -57,20 +57,26 @@
                                     <span class="text-muted">Sem imagem</span>
                                 @endif
                             </td>
-                            <td class="text-center">
-                                <a href="{{ route('cardapio.edit', $prato->id) }}" class="btn btn-sm btn-outline-primary">
-                                    <span class="material-icons">edit</span>
-                                </a>
-                            </td>
-                            <td class="text-center">
-                                <form action="{{ route('cardapio.destroy', $prato->id) }}" method="POST" onsubmit="return confirm('Deseja excluir este item?')" class="d-inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-sm btn-outline-danger">
-                                        <span class="material-icons">delete</span>
-                                    </button>
-                                </form>
-                            </td>
+
+                            @if(auth()->id() === $prato->user_id)
+                                <td class="text-center">
+                                    <a href="{{ route('cardapio.edit', $prato->id) }}" class="btn btn-sm btn-outline-primary">
+                                        <span class="material-icons">edit</span>
+                                    </a>
+                                </td>
+                                <td class="text-center">
+                                    <form action="{{ route('cardapio.destroy', $prato->id) }}" method="POST" onsubmit="return confirm('Deseja excluir este item?')" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-sm btn-outline-danger">
+                                            <span class="material-icons">delete</span>
+                                        </button>
+                                    </form>
+                                </td>
+                            @else
+                                <td></td>
+                                <td></td>
+                            @endif
                         </tr>
                     @empty
                         <tr>
@@ -82,7 +88,6 @@
         </div>
     </div>
 
-    {{-- Paginação --}}
     <div class="mt-3">
         {!! $pratos->links('pagination::bootstrap-5') !!}
     </div>
