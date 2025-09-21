@@ -3,14 +3,16 @@
 @section('title', 'Home')
 
 @section('content')
-    <h1 class="text-5xl font-bold mb-6 text-orange-600 text-center">Bem-vindo ao Cardápio</h1>
-    <p class="text-center mb-5">Confira os pratos disponíveis em nosso restaurante</p>
+    {{-- Título e descrição --}}
+    <h1 class="display-4 fw-bold text-center mb-4">Bem-vindo ao Cardápio</h1>
+    <p class="lead text-center mb-5">Confira os pratos disponíveis em nosso restaurante</p>
 
+    {{-- Sessão de pratos --}}
     <div class="container">
         <div class="row">
             @forelse($pratos as $prato)
                 <div class="col-md-4 mb-4">
-                    <div class="card shadow-lg border-0 h-100">
+                    <div class="card shadow border-0 h-100">
                         @if($prato->arquivo)
                             <img src="{{ asset('storage/' . $prato->arquivo) }}" 
                                  class="card-img-top" 
@@ -23,11 +25,9 @@
                         @endif
 
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title text-dark fw-bold">{{ $prato->nm_prato }}</h5>
-                            <p class="card-text text-muted flex-grow-1">
-                                {{ $prato->desc_ingred }}
-                            </p>
-                            <p class="fw-bold text-orange-600 fs-5">
+                            <h5 class="card-title fw-bold text-dark">{{ $prato->nm_prato }}</h5>
+                            <p class="card-text text-muted flex-grow-1">{{ $prato->desc_ingred }}</p>
+                            <p class="fw-bold fs-5">
                                 R$ {{ number_format($prato->vl_prato, 2, ',', '.') }}
                             </p>
                         </div>

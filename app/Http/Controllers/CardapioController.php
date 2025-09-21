@@ -50,10 +50,11 @@ class CardapioController extends Controller
 
     public function update(CardapioRequest $request, Prato $prato)
     {
-        $this->authorize('update', $prato); // Garantido
+        $this->authorize('update', $prato);
 
         $data = $request->validated();
 
+    // Upload de arquivo
         if ($request->hasFile('arquivo')) {
             if ($prato->arquivo && Storage::disk('public')->exists($prato->arquivo)) {
                 Storage::disk('public')->delete($prato->arquivo);
@@ -61,26 +62,25 @@ class CardapioController extends Controller
             $data['arquivo'] = $request->file('arquivo')->store('pratos', 'public');
         }
 
-        $prato->update($data);
+        $atualizou = $prato->update($data);
 
-        return redirect()->route('cardapio.index')
-            ->with('success', 'Prato atualizado com sucesso!');
+        return $atualizou
+            ? redirect()->route('cardapio.index')->with('success', 'Prato atualizado com sucesso!')
+            : redirect()->route('cardapio.index')->with('error', 'Não foi possível atualizar o prato!');
     }
 
     public function destroy(Prato $prato)
     {
-        $this->authorize('delete', $prato); // Garantido
+        $this->authorize('delete', $prato);
 
-        if ($prato->arquivo && Storage::disk('public')->exists($prato->arquivo)) {
-            Storage::disk('public')->delete($prato->arquivo);
-        }
+            if ($prato->arquivo && Storage::disk('public')->exists($prato->arquivo)) {
+                Storage::disk('public')->delete($prato->arquivo);
+            }
 
         $deletou = $prato->delete();
 
-        if ($deletou) {
-            return redirect()->route('cardapio.index')->with('success', 'Prato removido com sucesso!');
-        }
-
-        return redirect()->route('cardapio.index')->with('error', 'Não foi possível remover o prato!');
+        return $deletou
+            ? redirect()->route('cardapio.index')->with('success', 'Prato removido com sucesso!')
+            : redirect()->route('cardapio.index')->with('error', 'Não foi possível remover o prato!');
     }
 }

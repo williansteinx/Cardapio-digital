@@ -26,7 +26,7 @@ class PratoSeeder extends Seeder
 
         Prato::create([
             'nm_prato' => 'Pizza de Calabresa',
-            'desc_ingred' => 'Massa fina, molho de tomate, mussarela e manjericão',
+            'desc_ingred' => 'Massa, molho de tomate, calabresa e mussarela',
             'vl_prato' => 30.00,
             'arquivo' => 'pratos/PizzaCalabresa.jpg',
             'user_id' => $user->id
