@@ -44,7 +44,7 @@ class CardapioController extends Controller
 
     public function edit(Prato $prato)
     {
-        $this->authorize('update', $prato); // Garantido
+        $this->authorize('update', $prato); 
         return view('cardapio.update', compact('prato'));
     }
 
@@ -54,7 +54,6 @@ class CardapioController extends Controller
 
         $data = $request->validated();
 
-    // Upload de arquivo
         if ($request->hasFile('arquivo')) {
             if ($prato->arquivo && Storage::disk('public')->exists($prato->arquivo)) {
                 Storage::disk('public')->delete($prato->arquivo);

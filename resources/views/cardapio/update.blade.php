@@ -4,15 +4,15 @@
 
 @section('content')
 
-<div class="container mt-5">
+<div class="container mt-3">
     <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-6">
             <div class="card shadow-lg border-0">
                 <div class="card-header bg-dark text-white">
-                    <h2 class="mb-0">Editar Prato: {{ $prato->nm_prato }}</h2>
+                    <h3 class="mb-0">Editar Prato: {{ $prato->nm_prato }}</h3>
                 </div>
 
-                <div class="card-body">
+                <div class="card-body mb-2">
                     {{-- Exibir erros de validação --}}
                     @if ($errors->any())
                         <div class="alert alert-danger">
