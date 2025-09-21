@@ -40,15 +40,18 @@ class CardapioRequest extends FormRequest
     public function messages()
     {
         return [
-            '*.required' => "O campo :attribute é obrigatório",
-            'nm_prato.min' => "Campo nome precisa ter no mínimo :min caracteres",
-            'desc_ingred.min' => "Campo de ingredientes precisa ter no mínimo :min caracteres",
-            'desc_ingred.max' => "Campo de ingredientes pode ter no máximo :max caracteres",
-            'vl_prato.min' => "Valor mínimo é :min",
-            'vl_prato.max' => "Valor máximo é :max",
+            'nm_prato.required' => "Campo nome é obrigatório",
+            'nm_prato.min' => "Campo nome precisa ter no mínimo 3 caracteres",
+            'desc_ingred.required' => "Campo de ingredientes é obrigatório",
+            'desc_ingred.min' => "Campo de ingredientes precisa ter no mínimo 3 caracteres",
+            'desc_ingred.max' => "Campo de ingredientes pode ter no máximo 300 caracteres",
+            'vl_prato.required' => "Campo valor é obrigatório",
+            'vl_prato.min' => "Valor mínimo é 1,00",
+            'vl_prato.max' => "Valor máximo é 1000,00",
+            'arquivo.required' => "Campo imagem é obrigatório",
             'arquivo.image' => "Arquivo precisa ser uma imagem",
             'arquivo.mimes' => "Arquivo precisa ter formato: jpg, jpeg ou png",
-            'arquivo.max' => "Imagem não pode ter tamanho maior que :max KB"
+            'arquivo.max' => "Imagem não pode ter tamanho maior que 10 mb"
         ];
     }
 }

@@ -26,7 +26,6 @@
 <body class="d-flex flex-column min-vh-100 bg-light text-dark">
 
     <!-- Cabeçalho / Navbar -->
-    <!-- Cabeçalho / Navbar -->
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
         <div class="container">
@@ -96,7 +95,6 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS (opcional) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
