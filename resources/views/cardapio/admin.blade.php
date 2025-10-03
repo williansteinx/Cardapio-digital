@@ -43,7 +43,7 @@
                 <tbody>
                     @forelse($pratos as $prato)
                         <tr>
-                            <td class="fw-semibold">{{ $prato->nm_prato }}</td>
+                            <td class="fw-semibold text-center">{{ $prato->nm_prato }}</td>
                             <td>{{ $prato->desc_ingred ?? '-' }}</td>
                             <td>R$ {{ number_format($prato->vl_prato, 2, ',', '.') ?? '-' }}</td>
                             <td>

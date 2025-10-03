@@ -44,7 +44,7 @@ class CardapioController extends Controller
 
     public function edit(Prato $prato)
     {
-        $this->authorize('edit', $prato);
+        $this->authorize('update', $prato);
         
         return view('cardapio.update', compact('prato'));
     }

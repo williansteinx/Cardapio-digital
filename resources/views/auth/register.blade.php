@@ -4,8 +4,8 @@
 
 @section('content')
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 70vh;">
-    <div class="card shadow-lg p-4" style="max-width: 420px; width:100%;">
-        <h2 class="text-center text-orange-600 mb-4">Criar conta</h2>
+    <div class="card shadow-lg p-4 col-md-4 py-5 rounded-4">
+        <h2 class="text-center text-orange-600 mb-4 fw-bold mt-2">Criar conta</h2>
 
         @if ($errors->any())
             <div class="alert alert-danger">

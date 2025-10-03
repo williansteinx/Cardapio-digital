@@ -4,8 +4,11 @@
 
 @section('content')
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 70vh;">
-    <div class="card shadow-lg p-4 col-md-4 py-5">
-        <h2 class="text-center text-orange-600 mb-4">Acesse sua conta</h2>
+    <div class="card shadow-lg p-4 col-md-4 py-5 rounded-4">
+        <div class="text-center mb-4">
+            <i class="bi bi-person-circle fs-1 text-dark"></i>
+                <h2 class="fw-bold mt-2">Acesse sua conta</h2>
+        </div>
 
         <!-- Status da sessão -->
         @if (session('status'))
